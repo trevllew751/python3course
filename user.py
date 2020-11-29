@@ -43,10 +43,24 @@ class User:
         return f"Happy {self.age}th Birthday, {self.first}"
 
 
-# user1 = User("Joe", "Mama", 69)
-# user2 = User("Mama", "Joe", 169)
+class Moderator(User):
+    total_mods = 0
 
-tom = User.from_string("Tom,Jones,69")
-print(tom)
-# print(tom.full_name())
-# print(tom.birthday())
+    def __init__(self, first, last, age, community):
+        Moderator.total_mods += 1
+        super().__init__(first, last, age)
+        self.community = community
+
+    @classmethod
+    def display_active_users(cls):
+        return f"There are currently {cls.total_mods} active mods"
+
+    def remove_post(self):
+        return f"{self.full_name()} removed a post from the {self.community} community"
+
+
+print(User.display_active_users())
+jasmine = Moderator("James", "Oreily", 45, "Grilling")
+print(User.display_active_users())
+u1 = User("Alex", "Kang", 23)
+print(User.display_active_users())
