@@ -10,7 +10,7 @@ class Deck:
         self.cards = [Card(suit, value) for suit in suits for value in values]
 
     def __repr__(self):
-        return "Deck of {} cards".format(self.count())
+        return f"Deck of {self.count()} cards"
 
     def count(self):
         return len(self.cards)
