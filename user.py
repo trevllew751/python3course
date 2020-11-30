@@ -52,7 +52,7 @@ class Moderator(User):
         self.community = community
 
     @classmethod
-    def display_active_users(cls):
+    def display_active_mods(cls):
         return f"There are currently {cls.total_mods} active mods"
 
     def remove_post(self):
