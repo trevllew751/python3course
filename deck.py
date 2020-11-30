@@ -1,5 +1,4 @@
 from random import shuffle
-from Demo.card import Card
 
 
 class Deck:
@@ -11,6 +10,9 @@ class Deck:
 
     def __repr__(self):
         return f"Deck of {self.count()} cards"
+
+    def __iter__(self):
+        return iter(self.cards)
 
     def count(self):
         return len(self.cards)
@@ -35,3 +37,18 @@ class Deck:
 
     def deal_hand(self, num_cards):
         return self._deal(num_cards)
+
+
+class Card:
+
+    def __init__(self, suit, value):
+        self.suit = suit
+        self.value = value
+
+    def __repr__(self):
+        return f"{self.value} of {self.suit}"
+
+
+# deck = Deck()
+# for card in deck:
+#     print(card)
