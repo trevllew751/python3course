@@ -10,7 +10,7 @@ class User:
 
     @classmethod
     def from_string(cls, data_str):
-        first, last, age = data_str.split(",")
+        first, last, age = data_str.first_last(",")
         return cls(first, last, int(age))
 
     def __init__(self, first, last, age):
